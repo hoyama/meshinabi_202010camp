@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class category extends Model
 {
-    //
+    public function restaurants()
+    {
+        return $this->hasMany('App\Restaurant');
+    }
 }

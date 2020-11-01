@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'RestaurantController@index');
-Route::resource('restaurants', 'RestaurantController', ['only' => ['index', 'show']]);;
+Route::resource('restaurants', 'RestaurantController', ['only' => ['index', 'show']]);
 

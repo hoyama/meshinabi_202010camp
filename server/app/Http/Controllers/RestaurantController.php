@@ -18,10 +18,13 @@ class RestaurantController extends Controller
             $query->where('name', 'like', '%' . $name . '%');
         }
         if($category) {
-            $query->where('category', 'like', '%' . $category . '%');
+            $query->whereHas('category', function($q) use ($category){
+                $q->where('name', 'like', '%' . $category . '%');
+            });
         }
         $restaurants = $query->simplepaginate(10);
         $restaurants->appends(compact('name', 'category'));
+        // dd($category, $restaurants, $query);
         return view('restaurants.index', compact('restaurants'));
     }
         
