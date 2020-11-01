@@ -14,6 +14,8 @@ class CreateRestaurantsTable extends Migration
     public function up()
     {
         Schema::create('restaurants', function (Blueprint $table) {
+                         // カラム名img_pathをカラム名pr_longの後ろに追加する
+            $table->string('img_path')->after('pr_long');
             $table->increments('id');
             $table->string('name');
             $table->string('name_kana')->nullable();
@@ -36,5 +38,6 @@ class CreateRestaurantsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('restaurants');
+        $table->dropColumn(['img_path']);
     }
 }

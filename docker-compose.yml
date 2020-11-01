@@ -41,5 +41,5 @@ services:
       - "./mysql-data:/var/lib/mysql:cached"
     ports:
       - 3306:3306
-    volumes:
-      node_modules:
+volumes:
+  node_modules:
